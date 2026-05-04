@@ -6,9 +6,9 @@
     "dev": "tsx watch src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js",
-    "db:push": "drizzle-kit push",
+    "db:push": "npx drizzle-kit push",
     "db:seed": "tsx src/db/seed.ts",
-    "db:studio": "drizzle-kit studio"
+    "db:studio": "npx drizzle-kit studio"
   },
   "dependencies": {
     "cors": "^2.8.5",
