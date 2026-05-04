@@ -1,0 +1,14 @@
+{
+  "name": "eduverse",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install && npm install --prefix server && npm install --prefix client",
+    "dev": "concurrently --names \"SERVER,CLIENT\" --prefix-colors \"yellow,cyan\" \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "db:push": "npm run db:push --prefix server",
+    "db:seed": "npm run db:seed --prefix server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

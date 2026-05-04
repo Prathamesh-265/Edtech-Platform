@@ -1,0 +1,22 @@
+"use strict";
+var _a;
+Object.defineProperty(exports, "__esModule", { value: true });
+require("dotenv/config");
+var express_1 = require("express");
+var cors_1 = require("cors");
+var courses_1 = require("./routes/courses");
+var lessons_1 = require("./routes/lessons");
+var enrollments_1 = require("./routes/enrollments");
+var dashboard_1 = require("./routes/dashboard");
+var app = (0, express_1.default)();
+app.use((0, cors_1.default)());
+app.use(express_1.default.json());
+app.use("/api", courses_1.default);
+app.use("/api", lessons_1.default);
+app.use("/api", enrollments_1.default);
+app.use("/api", dashboard_1.default);
+app.get("/api/healthz", function (_req, res) { return res.json({ ok: true }); });
+var port = Number((_a = process.env.PORT) !== null && _a !== void 0 ? _a : 5000);
+app.listen(port, function () {
+    console.log("Server running on http://localhost:".concat(port));
+});
