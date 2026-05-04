@@ -9,5 +9,8 @@ if (!process.env.DATABASE_URL) {
   throw new Error("DATABASE_URL must be set. Copy server/.env.example to server/.env and fill in your database URL.");
 }
 
-export const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+export const pool = new Pool({ 
+  connectionString: process.env.DATABASE_URL,
+  ssl: true
+});
 export const db = drizzle(pool, { schema });
