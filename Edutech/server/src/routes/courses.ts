@@ -64,7 +64,7 @@ router.post("/courses", async (req, res) => {
       ...body,
       thumbnailUrl: body.thumbnailUrl || null,
       price: String(body.price),
-    }).returning();
+    } as any).returning();
     res.status(201).json({ ...course, price: Number(course.price), lessonCount: 0, enrollmentCount: 0 });
   } catch (err) {
     console.error("Failed to create course", err);

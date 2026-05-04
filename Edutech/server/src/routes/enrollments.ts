@@ -82,7 +82,7 @@ router.get("/enrollments", async (req, res) => {
 router.post("/enrollments", async (req, res) => {
   try {
     const body = CreateEnrollmentBody.parse(req.body);
-    const [enrollment] = await db.insert(enrollmentsTable).values(body).returning();
+    const [enrollment] = await db.insert(enrollmentsTable).values(body as any).returning();
     res.status(201).json({ ...enrollment, enrolledAt: enrollment.enrolledAt.toISOString(), completedAt: null });
   } catch (err) {
     console.error("Failed to create enrollment", err);

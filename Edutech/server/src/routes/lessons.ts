@@ -37,7 +37,7 @@ router.post("/courses/:id/lessons", async (req, res) => {
       ...body,
       videoUrl: body.videoUrl || null,
       courseId: id,
-    }).returning();
+    } as any).returning();
     res.status(201).json({ ...lesson, createdAt: lesson.createdAt.toISOString() });
   } catch (err) {
     console.error("Failed to create lesson", err);
